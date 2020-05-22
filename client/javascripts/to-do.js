@@ -12,8 +12,17 @@ let controller = function() {
       $(".comments").append($new_comment);
       //$new_comment.fadeIn();
       $(".comment-input input").val("");
+
+      //log the list of paragraph elements
+      console.log($(".comments").html());
     }
+
   };
+
+  if (localStorage.getItem("toDoList")) {
+    localStorage.setItem("toDoList", $(".comments").html());
+    $(".comments").html(localStorage.getItem("toDoList"));
+  }
 
   $(".comment-input button").on("click", function(event) {
     addCommentFromInputBox();
@@ -25,5 +34,4 @@ let controller = function() {
     }
   });
 };
-
 $(document).ready(controller);
