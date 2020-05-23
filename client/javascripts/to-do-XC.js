@@ -32,6 +32,9 @@ let controller = function() {
     if (event.keyCode === 13) {
       addCommentFromInputBox();
     }
+    function removeAll() {
+    document.getElementById("toDoList").innerHTML = "";
+}
   });
 };
 $(document).ready(controller);
